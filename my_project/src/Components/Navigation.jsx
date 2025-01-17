@@ -7,7 +7,9 @@ function Navigation() {
 
       <button className="btn btn-active btn-error h-[20px] text-white"><a href="">ALL</a></button>
       <button className="btn btn-active btn-error h-[20px] text-white"><a href="music/">Music</a></button>
-      <button className="btn btn-active btn-error h-[20px] text-white"><a href="music/">Music</a></button>
+      <button className="btn btn-active btn-error h-[20px] text-white"><a href="drawing/">Drawing</a></button>
+      <button className="btn btn-active btn-error h-[20px] text-white"><a href="drawing/">Comedy</a></button>
+
 
 
       </div>

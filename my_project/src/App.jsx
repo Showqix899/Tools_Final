@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path = "" element={<First_Page/>}/>
           <Route path = "music/" element={<Music/>}/>
-          <Route path = "Drawing/" element={<Drawing/>}/>
+          <Route path = "drawing/" element={<Drawing/>}/>
         </Routes>
       </Router>
     </>
