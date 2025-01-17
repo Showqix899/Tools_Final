@@ -4,6 +4,11 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import First_Page from './Components/First_Page'
 import NavBar from './Components/NavBar'
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import Navigation from './Components/Navigation'
+import Drawing from './Components/Drawing'
+import Music from './Components/Music'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,9 +16,15 @@ function App() {
   return (
     <>
       <NavBar/>
-      <div className='w-full flex h-full flex-wrap '>
-      <First_Page/>
-      </div>
+      <Navigation/>
+
+      <Router>
+        <Routes>
+          <Route path = "" element={<First_Page/>}/>
+          <Route path = "music/" element={<Music/>}/>
+          <Route path = "Drawing/" element={<Drawing/>}/>
+        </Routes>
+      </Router>
     </>
   )
 }
