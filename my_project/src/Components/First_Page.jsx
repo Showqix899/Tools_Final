@@ -65,6 +65,8 @@ function First_Page() {
                 A card component has a figure, a body part, and inside the body,
                 there are title and actions parts.
               </p>
+              <p className='text-black'>views: {entry.others.views}</p>
+
             </div>
           </div>
         ))}

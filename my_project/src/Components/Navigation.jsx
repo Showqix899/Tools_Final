@@ -1,20 +1,45 @@
-import React from 'react'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 function Navigation() {
   return (
-    <>
-      <div className='w-full h-[60px] border-t-2 flex items-center justify-around'>
-
-      <button className="btn btn-active btn-error h-[20px] text-white"><a href="">ALL</a></button>
-      <button className="btn btn-active btn-error h-[20px] text-white"><a href="music/">Music</a></button>
-      <button className="btn btn-active btn-error h-[20px] text-white"><a href="drawing/">Drawing</a></button>
-      <button className="btn btn-active btn-error h-[20px] text-white"><a href="drawing/">Comedy</a></button>
-
-
-
-      </div>
-    </>
-  )
+    <nav className="">
+      <ul className="flex w-full justify-around items-center">
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? 'text-blue-500 font-bold btn-error' : 'text-gray-500 ')}
+          >
+            Home
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/music"
+            className={({ isActive }) => (isActive ? 'text-blue-500 font-bold' : 'text-gray-500')}
+          >
+            Music
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/drawing"
+            className={({ isActive }) => (isActive ? 'text-blue-500 font-bold' : 'text-gray-500')}
+          >
+            Drawing
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/comedy"
+            className={({ isActive }) => (isActive ? 'text-blue-500 font-bold' : 'text-gray-500')}
+          >
+            Comedy
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
 }
 
-export default Navigation
+export default Navigation;

@@ -1,40 +1,39 @@
 import React from 'react'
 import { useState,useEffect } from 'react';
 
-function Music() {
+
+function Comedy() {
     const [data, setData] = useState(null);
-      const [loading, setLoading] = useState(true);
-      const [error, setError] = useState(null);
+          const [loading, setLoading] = useState(true);
+          const [error, setError] = useState(null);
 
+          const fetchData = async () => {
+                    try {
+                      const response = await fetch(
+                        "https://openapi.programming-hero.com/api/videos/category/1003"
+          
+                      );
+                
+                      if (!response.ok) {
+                        throw new Error("Network Problem, Make sure network connection is stable");
+                      }
+                      const result = await response.json();
+                      setData(result);
+                      console.log(result);
+                      setLoading(false);
+                    } catch (err) {
+                      setError(err); // Fix: Pass the error object to setError
+                      setLoading(false);
+                    }
+                  };
+                
+                  useEffect(() => {
+                    fetchData();
+                  }, []);
+                
+                  if (loading) return <p>Loading ....</p>;
+                  if (error) return <p>Error: {error.message}</p>;
 
-      const fetchData = async () => {
-          try {
-            const response = await fetch(
-              "https://openapi.programming-hero.com/api/videos/category/1001"
-
-            );
-      
-            if (!response.ok) {
-              throw new Error("Network Problem, Make sure network connection is stable");
-            }
-            const result = await response.json();
-            setData(result);
-
-            setLoading(false);
-          } catch (err) {
-            setError(err); // Fix: Pass the error object to setError
-            setLoading(false);
-          }
-        };
-      
-        useEffect(() => {
-          fetchData();
-        }, []);
-      
-        if (loading) return <p>Loading ....</p>;
-        if (error) return <p>Error: {error.message}</p>;
-
-        
   return (
     <>
       <div className="flex flex-wrap">
@@ -71,8 +70,7 @@ function Music() {
                 A card component has a figure, a body part, and inside the body,
                 there are title and actions parts.
               </p>
-              <p className='text-black'>views: {entry.others.views}</p>
-
+              
             </div>
           </div>
         ))}
@@ -81,4 +79,4 @@ function Music() {
   )
 }
 
-export default Music
+export default Comedy

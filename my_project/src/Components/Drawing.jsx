@@ -11,7 +11,7 @@ function Drawing() {
     const fetchData = async () => {
               try {
                 const response = await fetch(
-                  "https://openapi.programming-hero.com/api/videos/category/1003"
+                  "https://openapi.programming-hero.com/api/videos/category/1005"
     
                 );
           
@@ -33,7 +33,10 @@ function Drawing() {
           
             if (loading) return <p>Loading ....</p>;
             if (error) return <p>Error: {error.message}</p>;
-  return (
+            if (!data || !data.data || data.data.length === 0) {
+              return <div className="text-center text-red-500 text-xl">No Items Found</div>;
+            }
+            return (
     <>
        <div className="flex flex-wrap">
       {data &&
@@ -69,6 +72,8 @@ function Drawing() {
                 A card component has a figure, a body part, and inside the body,
                 there are title and actions parts.
               </p>
+              <p className='text-black'>views: {entry.others.views}</p>
+
             </div>
           </div>
         ))}
