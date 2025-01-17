@@ -11,7 +11,9 @@ function App() {
   return (
     <>
       <NavBar/>
+      <div className='w-full flex h-full flex-wrap '>
       <First_Page/>
+      </div>
     </>
   )
 }
